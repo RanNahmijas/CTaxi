@@ -1,0 +1,94 @@
+﻿@model CTaxi.Models.DriverModels
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+
+<h2>Enter new driver:</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DriverModels</legend>
+
+        <div class="editor-label">
+            @Html.Label("Licence Number")
+        </div>
+        <div class="editor-field">            
+            @Html.EditorFor(model => model.LicenceNum)
+            @Html.ValidationMessageFor(model => model.LicenceNum)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Lastname")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Applying date")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplyingDate)      
+            @Html.ValidationMessageFor(model => model.ApplyingDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Eye check date")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastEyeCheck)
+            @Html.ValidationMessageFor(model => model.LastEyeCheck)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Email")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAddress)
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>        
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#ApplyingDate').datepicker({ dateFormat: 'dd/mm/yy' });
+            $('#LastEyeCheck').datepicker({ dateFormat: 'dd/mm/yy' });
+        });
+    </script>
+}

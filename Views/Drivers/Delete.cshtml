@@ -1,0 +1,68 @@
+﻿@model CTaxi.Models.DriverModels
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete @Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.LastName)?</h3>
+<fieldset id="deleteForm">
+    <legend>DriverModels</legend>
+
+    <div class="display-label" style="font-weight:800">
+         @Html.DisplayName("Licence Number")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LicenceNum)
+    </div>
+
+    <div class="display-label" style="font-weight:800">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label" style="font-weight:800">
+         @Html.DisplayName("Lastname")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label" style="font-weight:800">
+         @Html.DisplayName("Applying date")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplyingDate)
+    </div>    
+
+    <div class="display-label" style="font-weight:800">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label" style="font-weight:800">
+         @Html.DisplayName("Email")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmailAddress)
+    </div>
+
+    <div class="display-label" style="font-weight:800">
+         @Html.DisplayName("Time in the company")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SeniorityInDays) 
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

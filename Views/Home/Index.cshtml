@@ -1,0 +1,25 @@
+﻿@model CTaxi.Models.LoginModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">                
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>                
+                For drivers information list please @Html.ActionLink("Log in", "Login", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" }).
+            </p>             
+              </div>
+    </section>   
+
+} 
+
+
+
+
+
+
